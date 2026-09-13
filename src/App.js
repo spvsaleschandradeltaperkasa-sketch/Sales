@@ -542,8 +542,8 @@ export default function App() {
       <div className="flex min-h-screen bg-slate-950 items-center justify-center p-4 font-sans text-slate-100 antialiased selection:bg-red-500 selection:text-white">
         <div className="w-full max-w-md bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl shadow-red-950/20">
           <div className="flex flex-col items-center text-center mb-8">
-            <div className="h-16 w-16 bg-gradient-to-br from-red-600 to-red-700 text-white rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-red-600/30 font-black text-3xl border border-red-500/50">
-              Δ
+            <div className="h-16 w-16 mb-4 flex items-center justify-center">
+              <img src="/logo-delta.jpeg" alt="Logo Delta Perkasa" className="h-full w-full object-contain" />
             </div>
             <h1 className="text-xl font-black text-white tracking-wider uppercase">
               CV CHANDRA DELTA PERKASA
@@ -621,8 +621,8 @@ export default function App() {
       <aside className="w-72 bg-slate-950/80 backdrop-blur-xl text-slate-300 flex flex-col justify-between p-5 shrink-0 border-r border-slate-800/80 shadow-2xl">
         <div>
           <div className="flex items-center gap-3.5 px-3 py-4 mb-6 border-b border-slate-800/80">
-            <div className="h-11 w-11 bg-gradient-to-br from-red-600 to-red-700 text-white rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-red-600/30 font-black text-xl border border-red-500/50">
-              Δ
+            <div className="h-11 w-11 flex items-center justify-center shrink-0">
+              <img src="/logo-delta.jpeg" alt="Logo Delta Perkasa" className="h-full w-full object-contain" />
             </div>
             <div>
               <div className="font-extrabold text-white text-xs tracking-wider uppercase leading-snug">
