@@ -14,6 +14,10 @@ import {
   AlertTriangle,
   TrendingUp,
   Briefcase,
+  DollarSign,
+  Wallet,
+  CircleDollarSign,
+  Sparkles,
 } from "lucide-react";
 
 const URL_2025 =
@@ -539,11 +543,19 @@ export default function App() {
 
   if (!isLoggedIn) {
     return (
-      <div className="flex min-h-screen bg-slate-950 items-center justify-center p-4 font-sans text-slate-100 antialiased selection:bg-red-500 selection:text-white">
-        <div className="w-full max-w-md bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl shadow-red-950/20">
+      <div className="relative flex min-h-screen bg-slate-950 items-center justify-center p-4 font-sans text-slate-100 antialiased selection:bg-red-500 selection:text-white overflow-hidden">
+        <div className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"></div>
+        <div className="pointer-events-none absolute -bottom-32 -right-32 w-96 h-96 bg-red-700/20 rounded-full blur-3xl"></div>
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-900/10 rounded-full blur-3xl"></div>
+
+        <div className="relative w-full max-w-md bg-slate-900/80 backdrop-blur-xl border border-slate-800 rounded-3xl p-8 shadow-2xl shadow-red-950/30">
           <div className="flex flex-col items-center text-center mb-8">
-            <div className="h-16 w-16 mb-4 flex items-center justify-center">
+            <div className="h-20 w-20 mb-5 flex items-center justify-center rounded-2xl bg-white/5 border border-red-500/20 shadow-lg shadow-red-600/20 p-2">
               <img src="/LOGO%20DELTA.jpeg" alt="Logo Delta Perkasa" className="h-full w-full object-contain" />
+            </div>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-[10px] font-bold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3 h-3" />
+              Enterprise Dashboard
             </div>
             <h1 className="text-xl font-black text-white tracking-wider uppercase">
               CV CHANDRA DELTA PERKASA
@@ -621,7 +633,7 @@ export default function App() {
       <aside className="w-72 bg-slate-950/80 backdrop-blur-xl text-slate-300 flex flex-col justify-between p-5 shrink-0 border-r border-slate-800/80 shadow-2xl">
         <div>
           <div className="flex items-center gap-3.5 px-3 py-4 mb-6 border-b border-slate-800/80">
-            <div className="h-11 w-11 flex items-center justify-center shrink-0">
+            <div className="h-12 w-12 flex items-center justify-center shrink-0 rounded-xl bg-white/5 border border-red-500/20 p-1.5 shadow-lg shadow-red-600/10">
               <img src="/LOGO%20DELTA.jpeg" alt="Logo Delta Perkasa" className="h-full w-full object-contain" />
             </div>
             <div>
@@ -640,7 +652,7 @@ export default function App() {
               className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-semibold transition-all duration-200 ${
                 activeTab === "overview"
                   ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/25 border border-red-500/30"
-                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200"
+                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200 hover:translate-x-1"
               }`}
             >
               <LayoutDashboard className="w-4 h-4" />
@@ -652,7 +664,7 @@ export default function App() {
               className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-semibold transition-all duration-200 ${
                 activeTab === "sales"
                   ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/25 border border-red-500/30"
-                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200"
+                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200 hover:translate-x-1"
               }`}
             >
               <Users className="w-4 h-4" />
@@ -664,7 +676,7 @@ export default function App() {
               className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-semibold transition-all duration-200 ${
                 activeTab === "trend"
                   ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/25 border border-red-500/30"
-                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200"
+                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200 hover:translate-x-1"
               }`}
             >
               <TrendingUp className="w-4 h-4" />
@@ -676,7 +688,7 @@ export default function App() {
               className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-semibold transition-all duration-200 ${
                 activeTab === "aging"
                   ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/25 border border-red-500/30"
-                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200"
+                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200 hover:translate-x-1"
               }`}
             >
               <Clock className="w-4 h-4" />
@@ -688,7 +700,7 @@ export default function App() {
               className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-semibold transition-all duration-200 ${
                 activeTab === "master"
                   ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/25 border border-red-500/30"
-                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200"
+                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200 hover:translate-x-1"
               }`}
             >
               <FileText className="w-4 h-4" />
@@ -700,7 +712,7 @@ export default function App() {
               className={`w-full flex items-center gap-3 px-3.5 py-3 rounded-xl text-xs font-semibold transition-all duration-200 ${
                 activeTab === "jobid"
                   ? "bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-600/25 border border-red-500/30"
-                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200"
+                  : "hover:bg-slate-800/50 text-slate-400 hover:text-slate-200 hover:translate-x-1"
               }`}
             >
               <Briefcase className="w-4 h-4" />
@@ -847,18 +859,28 @@ export default function App() {
 
         {/* Dynamic KPI Cards + Ringkasan Aging Piutang Tambahan */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
-          <div className="bg-slate-950/60 backdrop-blur-md rounded-2xl border-l-4 border-l-blue-500 border border-slate-800 p-5 shadow-xl">
-            <div className="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-2">
-              TOTAL REVENUE
+          <div className="bg-slate-950/60 backdrop-blur-md rounded-2xl border-l-4 border-l-blue-500 border border-slate-800 p-5 shadow-xl hover:shadow-blue-900/20 hover:-translate-y-0.5 transition-all duration-200">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">
+                TOTAL REVENUE
+              </div>
+              <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                <DollarSign className="w-4 h-4 text-blue-400" />
+              </div>
             </div>
             <div className="text-xl font-black text-white">
               {formatRupiah(totalRevenue)}
             </div>
           </div>
 
-          <div className="bg-slate-950/60 backdrop-blur-md rounded-2xl border-l-4 border-l-emerald-500 border border-slate-800 p-5 shadow-xl">
-            <div className="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-2">
-              CASH IN
+          <div className="bg-slate-950/60 backdrop-blur-md rounded-2xl border-l-4 border-l-emerald-500 border border-slate-800 p-5 shadow-xl hover:shadow-emerald-900/20 hover:-translate-y-0.5 transition-all duration-200">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">
+                CASH IN
+              </div>
+              <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center">
+                <Wallet className="w-4 h-4 text-emerald-400" />
+              </div>
             </div>
             <div className="text-xl font-black text-white">
               {formatRupiah(totalCashIn)}
@@ -868,21 +890,28 @@ export default function App() {
             </div>
           </div>
 
-          <div className="bg-slate-950/60 backdrop-blur-md rounded-2xl border-l-4 border-l-red-500 border border-slate-800 p-5 shadow-xl">
-            <div className="text-[11px] font-bold text-slate-400 tracking-wider uppercase mb-2">
-              SISA TAGIHAN
+          <div className="bg-slate-950/60 backdrop-blur-md rounded-2xl border-l-4 border-l-red-500 border border-slate-800 p-5 shadow-xl hover:shadow-red-900/20 hover:-translate-y-0.5 transition-all duration-200">
+            <div className="flex items-center justify-between mb-2">
+              <div className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">
+                SISA TAGIHAN
+              </div>
+              <div className="w-8 h-8 rounded-lg bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                <CircleDollarSign className="w-4 h-4 text-red-400" />
+              </div>
             </div>
             <div className="text-xl font-black text-white">
               {formatRupiah(totalSisaTagihan)}
             </div>
           </div>
 
-          <div className="bg-slate-950/60 backdrop-blur-md rounded-2xl border-l-4 border-l-amber-500 border border-slate-800 p-5 shadow-xl">
+          <div className="bg-slate-950/60 backdrop-blur-md rounded-2xl border-l-4 border-l-amber-500 border border-slate-800 p-5 shadow-xl hover:shadow-amber-900/20 hover:-translate-y-0.5 transition-all duration-200">
             <div className="flex items-center justify-between mb-2">
               <span className="text-[11px] font-bold text-slate-400 tracking-wider uppercase">
                 AGING &gt; 60 &amp; &gt; 120 HARI
               </span>
-              <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+              <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
+                <AlertTriangle className="w-4 h-4 text-amber-400" />
+              </div>
             </div>
             <div className="text-lg font-black text-amber-400">
               {formatRupiah(agingSummary.aging60_120 + agingSummary.agingCritical120)}
@@ -936,7 +965,7 @@ export default function App() {
                   return (
                     <div
                       key={item.sales}
-                      className="bg-slate-950/60 backdrop-blur-md rounded-2xl border border-slate-800 p-5 shadow-xl flex flex-col justify-between"
+                      className="bg-slate-950/60 backdrop-blur-md rounded-2xl border border-slate-800 p-5 shadow-xl flex flex-col justify-between hover:border-red-500/30 hover:shadow-red-950/20 hover:-translate-y-0.5 transition-all duration-200"
                     >
                       <div>
                         <div className="flex items-center justify-between mb-4">
