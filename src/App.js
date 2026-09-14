@@ -48,6 +48,23 @@ const ALLOWED_USERS = [
   { username: "sales", password: "sales123", role: "Sales Team" },
 ];
 
+// --- Helper: menentukan gaya badge status agar setiap status punya warna berbeda ---
+const getStatusBadgeStyle = (status, sisaTagihan, danaMasuk) => {
+  const st = status ? status.toLowerCase().trim() : "";
+  const isLebih = st.includes("lebih") || sisaTagihan < 0;
+  const isLunas = st.includes("lunas") || (sisaTagihan === 0 && danaMasuk > 0);
+  const isKurang =
+    st.includes("kurang") || (!isLunas && !isLebih && sisaTagihan > 0 && danaMasuk > 0);
+  const isBelum =
+    st.includes("belum ada") || (!isLunas && !isLebih && !isKurang && danaMasuk === 0);
+
+  if (isLunas) return "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20";
+  if (isLebih) return "bg-sky-500/10 text-sky-400 border border-sky-500/20";
+  if (isKurang) return "bg-amber-500/10 text-amber-400 border border-amber-500/20";
+  if (isBelum) return "bg-red-500/10 text-red-400 border border-red-500/20";
+  return "bg-slate-500/10 text-slate-400 border border-slate-500/20";
+};
+
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState("");
@@ -250,7 +267,7 @@ export default function App() {
       if (!lines[i].trim()) continue;
       const cols = parseLine(lines[i]);
       const cleanStr = (val) => (val ? val.replace(/^"|"$/g, "").trim() : "");
-      
+
       const jobIdVal = cleanStr(cols[6]) || "-";
       const viaVal = cleanStr(cols[8]) || "-";
       const jenisSewaVal = cleanStr(cols[9]) || "-";
@@ -1241,11 +1258,11 @@ export default function App() {
                         <td className="px-4 py-3 text-emerald-400">{formatRupiah(item.danaMasuk)}</td>
                         <td className="px-4 py-3 text-red-400 font-bold">{formatRupiah(item.sisaTagihan)}</td>
                         <td className="px-4 py-3">
-                          <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold ${
-                            item.status.toLowerCase().includes("lunas")
-                              ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                              : "bg-red-500/10 text-red-400 border border-red-500/20"
-                          }`}>
+                          <span className={`px-2.5 py-1 rounded-lg text-[10px] font-bold ${getStatusBadgeStyle(
+                            item.status,
+                            item.sisaTagihan,
+                            item.danaMasuk
+                          )}`}>
                             {item.status}
                           </span>
                         </td>
